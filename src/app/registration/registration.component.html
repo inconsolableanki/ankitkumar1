@@ -1,0 +1,28 @@
+
+
+
+
+<form (ngSubmit)= "Submitform(myForm)" #myForm="ngForm">
+  <mat-form-field >
+    <input name="username" matInput placeholder="Enter Username" 
+    ngModel 
+    required
+    />
+  </mat-form-field>
+
+  <mat-form-field >
+    <input name="emailid" matInput placeholder="Enter Email-Id"
+   ngModel
+   required
+   email
+   
+   />
+  </mat-form-field>
+  
+  <button mat-raised-button color="accent" type="submit">Submit</button>
+ 
+  
+
+</form>
+
+

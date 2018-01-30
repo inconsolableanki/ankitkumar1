@@ -1,0 +1,18 @@
+.gallary{
+    text-align: right;
+    
+}
+.router-links{
+
+    color: rgb(88, 10, 40);
+    text-decoration-style: solid;
+    font-family: 'Times New Roman', Times, serif;
+    text-decoration: brown;
+    padding-right: 10px;
+}
+.active-link{
+    color: red;
+}
+.ank{
+    background-color: aqua;
+}
