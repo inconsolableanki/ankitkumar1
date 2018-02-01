@@ -7,6 +7,8 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
+
+
 const routes: Routes=[
   {path:'', component:RegistrationComponent}
 ]
@@ -19,9 +21,10 @@ const routes: Routes=[
     MatInputModule,
     MatFormFieldModule,
     MatButtonModule,
-    MatIconModule
-    
+    MatIconModule,
+   
   ],
-  declarations: [RegistrationComponent]
+  declarations: [RegistrationComponent],
+  
 })
 export class RegistrationModule { }

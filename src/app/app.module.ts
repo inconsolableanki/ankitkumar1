@@ -12,7 +12,7 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { ContactusModule } from './contactus/contactus.module';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import { AuthService } from './auth.service';
-
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 
 
@@ -39,7 +39,7 @@ const routes : Routes = [
   ],
   imports: [
     BrowserModule,
-    CoreModule, 
+    CoreModule, MatSidenavModule,
     RouterModule.forRoot(routes),NoopAnimationsModule
     
     

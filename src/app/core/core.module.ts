@@ -6,9 +6,10 @@ import { RouterModule } from '@angular/router';
 import { MenuItemComponent } from './menu-item/menu-item.component';
 import { ImagePlaceholderComponent } from './image-placeholder/image-placeholder.component';
 import { HearderService } from './header/hearder.service';
+import {MatSidenavModule} from '@angular/material/sidenav';
 @NgModule({
   imports: [
-    CommonModule,RouterModule
+    CommonModule,RouterModule,MatSidenavModule
   ],
   declarations: [HeaderComponent, FooterComponent, MenuItemComponent, ImagePlaceholderComponent],
   exports: [HeaderComponent,FooterComponent],

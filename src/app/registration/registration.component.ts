@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms/src/directives/ng_form';
+import { NgForm } from '@angular/forms';
+
+import { AuthServiceimpl } from '../auth.service';
+import { UserModel } from './user.module';
 
 @Component({
   selector: 'app-registration',
@@ -8,19 +11,34 @@ import { NgForm } from '@angular/forms/src/directives/ng_form';
 })
 export class RegistrationComponent implements OnInit {
 
-  singInwithEmailPassword(email, password){
+user : UserModel= new UserModel();
+
+
+
+  signInWithGoogle(){
 
   }
 
-  singInwithGoogle(){
-
-  }
-
-  Submitform(form:NgForm)
+ 
+  constructor (private authservices: AuthServiceimpl)
   {
-    console.log(form);
+
   }
-  constructor() { }
+ 
+  signUpWithEmailAndPassword(email,password){
+    console.log("email is", email)
+    console.log("password is", password)
+    this.authservices.signUpWithEmailAndPassword(email,password)
+
+  }
+
+
+ /* submitForm(){
+        if(this.myForm.invalid){            /*check for use lara-mean-stack
+          alert("Form is invalid")
+        }*/
+
+
 
   ngOnInit() {
   }

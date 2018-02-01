@@ -1,28 +1,35 @@
 
 
+<div>
 
-
-<form (ngSubmit)= "Submitform(myForm)" #myForm="ngForm">
-  <mat-form-field >
-    <input name="username" matInput placeholder="Enter Username" 
-    ngModel 
+<form (ngSubmit)= "signUpWithEmailAndPassword(user.email,user.password)" #myForm="ngForm">
+  <mat-form-field>
+    <input name="EmailId" matInput placeholder="Enter Username" 
+    [(ngModel)]="user.email"
     required
+    email
+    #emailId = "ngModel"
     />
-  </mat-form-field>
+    <mat-error *ngIf="emailId.errors?.required">Email id is required.</mat-error>            
+     <mat-error *ngIf="!emailId.errors?.required && emailId.errors?.email">Email id is not valid.</mat-error>
+    </mat-form-field>
+  
 
-  <mat-form-field >
-    <input name="emailid" matInput placeholder="Enter Email-Id"
-   ngModel
+  <mat-form-field>
+    <input name="Password" matInput placeholder="Enter Password" 
+    [(ngModel)]="user.password"
    required
-   email
+   #password = "ngModel"
    
    />
+   <mat-error *ngIf="password.invalid">Password is required.</mat-error> 
+  
   </mat-form-field>
   
-  <button mat-raised-button color="accent" type="submit">Submit</button>
- 
-  
+  <button [disabled]="myForm.invalid" mat-raised-button color="accent" type="submit">Submit</button>
+
 
 </form>
 
 
+</div>
