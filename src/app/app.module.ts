@@ -11,8 +11,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { ContactusModule } from './contactus/contactus.module';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
-import { AuthService } from './auth.service';
+  
+import {AuthServiceImpl } from './auth.service';
 import {MatSidenavModule} from '@angular/material/sidenav';
+
 
 
 
@@ -46,7 +48,7 @@ const routes : Routes = [
     
     
   ],
-  providers: [AuthService],
+  providers: [AuthServiceImpl],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
-import { AuthServiceimpl } from '../auth.service';
+import {AuthServiceImpl} from '../auth.service';
 import { UserModel } from './user.module';
 
 @Component({
@@ -15,12 +15,9 @@ user : UserModel= new UserModel();
 
 
 
-  signInWithGoogle(){
-
-  }
 
  
-  constructor (private authservices: AuthServiceimpl)
+  constructor (private authservices: AuthServiceImpl)
   {
 
   }
@@ -28,7 +25,7 @@ user : UserModel= new UserModel();
   signUpWithEmailAndPassword(email,password){
     console.log("email is", email)
     console.log("password is", password)
-    this.authservices.signUpWithEmailAndPassword(email,password)
+    this.authservices.userSignup(email,password)
 
   }
 
@@ -38,7 +35,10 @@ user : UserModel= new UserModel();
           alert("Form is invalid")
         }*/
 
-
+        signInWithGoogle(){
+       
+        }
+     
 
   ngOnInit() {
   }

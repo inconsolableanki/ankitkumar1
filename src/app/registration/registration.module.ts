@@ -9,6 +9,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 
 
+
 const routes: Routes=[
   {path:'', component:RegistrationComponent}
 ]
@@ -25,6 +26,8 @@ const routes: Routes=[
    
   ],
   declarations: [RegistrationComponent],
+  providers:[]
+  
   
 })
 export class RegistrationModule { }
