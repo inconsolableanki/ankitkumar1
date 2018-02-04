@@ -26,30 +26,30 @@ user : UserModel= new UserModel();
 
   private validateCredential(email,password)
   {
-    this.validate(email,password).then((response)=>{
-      console.log(response)
-      this.signUpWithEmailAndPassword(email,password)
+      this.validate(email,password).then((response)=>{
+          console.log(response)
+            this.signUpWithEmailAndPassword(email,password)
 
-    }).catch((error)=>{console.log(error)
-      console.log("we got google firebase auth responed")
+              }).catch((error)=>{console.log(error)
+                    console.log("we got google firebase auth responed")
     }).catch(function(error){
-      console.log(error.message)
+                            console.log(error.message)
     })
-     console.log("Firebase is finished")
+                                 console.log("Firebase is finished")
     
   }
   
 
   private validate(email,password):Promise<any>{
     console.log("Inside validate()  ")
-    return new Promise<any>((resolve,reject)=>{
+      return new Promise<any>((resolve,reject)=>{
           console.log("inside call back")
-          if(email=="ankit1@gmail.com"){
-            console.error("email-id is already exist")
-            reject("Email is already avalaible in DB")
-          }else{
-            console.log("user can perform login operation")
-            resolve("user can perform login operation")
+              if(email=="ankit1@gmail.com"){
+                console.error("email-id is already exist")
+                  reject("Email is already avalaible in DB")
+          } else{
+                      console.log("user can perform login operation")
+                        resolve("user can perform login operation")
 
           }
     })
@@ -58,10 +58,10 @@ user : UserModel= new UserModel();
 
   
  
-  signUpWithEmailAndPassword(email,password){
-    console.log("email is", email)
-    console.log("password is", password)
-    this.authservices.userSignup(email,password)
+    signUpWithEmailAndPassword(email,password){
+       console.log("email is", email)
+          console.log("password is", password)
+             this.authservices.userSignup(email,password)
 
   }
 
