@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
 
-    let myFirstObserver : Observable<number> = Observable.interval(1000); 
+/*    let myFirstObserver : Observable<number> = Observable.interval(1000); 
 
     this.myfirstSubscription = myFirstObserver.subscribe(
 
@@ -45,7 +45,7 @@ export class HomeComponent implements OnInit {
       ()=>{
         console.log("Observable is done")
       }
-    )
+    )*/
 
 
   }
