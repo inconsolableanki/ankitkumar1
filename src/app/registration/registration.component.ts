@@ -2,10 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 import {AuthService, AuthServiceImpl} from '../auth.service';
-import { UserModel } from './user.module';
+
 import * as Firebase from 'firebase';
 import { User } from 'firebase';
 import { Router } from '@angular/router';
+import { Subject } from 'rxjs/Subject';
+import 'rxjs/add/operator/debounceTime';
+import 'rxjs/add/operator/map';
+import { UserModel } from '../model/user.model';
 
 
 @Component({
@@ -15,7 +19,7 @@ import { Router } from '@angular/router';
 })
 export class RegistrationComponent implements OnInit {
 
-user : UserModel= new UserModel();
+user : UserModel= new UserModel;
 
 
 
@@ -23,7 +27,21 @@ user : UserModel= new UserModel();
  
   constructor (private authservices: AuthServiceImpl, private router : Router)
   {
+   /* this.modelChanged
+       .debounceTime(1000)     // wait 300ms after the last event before emitting last event
+        .distinctUntilChanged() // only emit if value is different from previous value
+        .subscribe(data => {
+          console.log("This.address ", this.address1)
+          console.log("address ", data.key)
+            console.log("old ",this.data1)
+            this.data1[data.key] = data.value;
+            console.log("new ",this.data1)   
+          });
+  } 
 
+  changed(value: string, key) {
+    console.log("Hello Changed")
+    this.modelChanged.next({key: key, value: value});*/
   }
 
   private validateCredential(email,password)
@@ -56,8 +74,26 @@ user : UserModel= new UserModel();
           }
     })
   }
-    
-      
+   
+  //----------------------------------------------------------------
+
+ 
+  address1: string;
+  address2: string;
+  modelChanged: Subject<{key, value}> = new Subject<{key, value}>();
+
+  data1 :{ address1, address2 } = { address1 : '', address2: ''};
+  
+//----------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
   // call singnUpwith method auth services |||
  
     signUpWithEmailAndPassword(email,password){
@@ -69,8 +105,8 @@ user : UserModel= new UserModel();
 
               let currentUser: Firebase.User = Firebase.auth().currentUser;
 
-              console.log("urrent user is ", currentUser.email)
-              console.log("urrent user is ", currentUser.displayName)
+              console.log("current useremail is ", currentUser.email)
+              console.log("current user is ", currentUser.displayName)
               alert("Your are regestred succesfully")
               this.router.navigate(['login'])
               currentUser.getIdToken(true).then((token : string)=>{

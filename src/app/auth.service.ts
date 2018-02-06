@@ -17,8 +17,8 @@ export class AuthServiceImpl implements AuthService{
             return this.signUpWithEmailAndPassword(email,password)
         }*/
 // calling the usersignup and in method
-        userSignup(email:any,password:any):Observable<any>{
-            return this.signUpWithEmailAndPassword(email,password)
+        userSignup(email:any,password:any){
+                   return this.signUpWithEmailAndPassword(email,password)
         }
         userSignin(email:any,password:any){
             return this.signInWithEmailAndPassword(email,password)

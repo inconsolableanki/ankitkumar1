@@ -30,8 +30,12 @@
   
   <button [disabled]="myForm.invalid" mat-raised-button color="accent" type="submit">Submit</button>
 
-
 </form>
 
+<<!--
+<input [ngModel]='address1' (ngModelChange)="changed($event, 'address1')" />
+
+<input [ngModel]='address2' (ngModelChange)="changed($event, 'address2')" />
+-->>
 
 </div>

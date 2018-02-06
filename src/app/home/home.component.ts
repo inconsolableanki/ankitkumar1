@@ -4,19 +4,22 @@ import { error } from 'util';
 import { Subscription } from 'rxjs/Rx';
 
 
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
+/*
   myfirstSubscription : Subscription;
   ngOnDestroy(): void{
     console.log("Destroy called")
     this.myfirstSubscription.unsubscribe();
-  }
-  constructor() { }
+  }*/
+  
+ // constructor() { }
+
 
   ngOnInit() {
 

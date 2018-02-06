@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService,AuthServiceImpl } from '../auth.service';
 import * as Firebase from 'firebase';
 import { Observable,Observer } from 'rxjs/Rx';
-import { setInterval, setTimeout } from 'timers';
-import { UserModel } from '../registration/user.module';
+import { UserModel } from '../model/user.model';
+
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -23,7 +24,7 @@ export class LoginComponent implements OnInit {
             console.log("loginWithUsernameAndPassword ends")
           },
           error=>{
-            console.log(error.msg)
+            console.log(error.messsage)
           }
         )
       }
