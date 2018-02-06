@@ -2,6 +2,9 @@ import * as Firebase from 'firebase';
 import { Observable } from 'rxjs/Rx';
 import { User } from 'firebase';
 import { from } from 'rxjs/observable/from'
+import { UserDetail } from './model/user-detail.model';
+import { appConstants } from './util/app.constant';
+import { error } from 'selenium-webdriver';
 
 export interface AuthService{
 
@@ -9,6 +12,10 @@ export interface AuthService{
         userSignup(email,password) : Observable<any>;
         userSignin(email,password) : Observable<any>;
         insertUserInfo(user : Firebase.User)
+        logout();
+        reloadTokenAndUserDetail();
+        getUserDetail(); 
+        getToken();
 }
 
 export class AuthServiceImpl implements AuthService{
@@ -17,6 +24,12 @@ export class AuthServiceImpl implements AuthService{
             return this.signUpWithEmailAndPassword(email,password)
         }*/
 // calling the usersignup and in method
+            private appConstant = appConstants;
+            private token : string;
+            private userDetail : UserDetail ///we have to hide these detials
+
+
+
         userSignup(email:any,password:any){
                    return this.signUpWithEmailAndPassword(email,password)
         }
@@ -40,45 +53,96 @@ export class AuthServiceImpl implements AuthService{
                 return from(Firebase.auth().signInWithEmailAndPassword(email,password))
             }
 
-                private storeUserinfo(user:Firebase.User)
+                private storeUserinfo(user:Firebase.User) //insert method is observable now create subscribe
                 {
                     console.log(user)
+                    from (user.getIdToken(true)).subscribe(
+                        data =>{
+                            console.log(data)
+                            this.token = data;  // this vill revert the token detials 
+                            this.storeValueInLocalStorage(this.appConstant.TOKEN,data)
+                            
+                        }, error=>{
+                            console.log(error)
+                            
+                        }
+
+                    )
+                    this.createUserDetail(user)
                 }
 
 
 
-    googleSignInUsingPopup(){
+                  private createUserDetail(user: Firebase.User){   //create user details and now store in firebas
+                            let userDetail : UserDetail = new UserDetail();
+                            userDetail.displayName = user.displayName;
+                            userDetail.emailId = user.email;
+                            userDetail.emailVerified = user.emailVerified;
+                            userDetail.phone = user.phoneNumber
+                            userDetail.photoURL = user.photoURL
+                            this.userDetail = userDetail
+                            this.storeValueInLocalStorage(this.appConstant.USER_DETAIL, JSON.stringify(userDetail))
+                           //JSON TO CONVERT VALUE IN STRING 
+                           //CREATE DETAILS AND STORE IN LOCALSTORAGE
+                  }
+
+
+
+                  storeValueInLocalStorage(key: string, value: string){
+                            localStorage.setItem(key, value);
+                       }
+                          googleSignInUsingPopup(){
 
         console.log("Hello World")
     }
 
-/*    private signUpWithEmailAndPassword(email, password){
-        
-        Firebase.auth().createUserWithEmailAndPassword(email, password)
-        .then(function(response: Firebase.User){
-            console.log(response)
-            let currentUser : Firebase.User = Firebase.auth().currentUser;
-            console.log("current user is ", currentUser.email)
-            console.log("current user is ", currentUser.displayName)
-            
+    //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-            currentUser.getIdToken(true).then( (token: string) => {
-                console.log("TOken is ", token )
-            }, (error : any) =>{
-                console.log(error)
-            } )
+                    getValueFromLocalStorage(key){
+                        return localStorage.getItem(key)
+                      }
 
-            console.log("we got google firebase auth response")
+    //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+                    
+                          removeValueFromLocalStorage(key){
+                                localStorage.removeItem(key)
+                            }
+
+    //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+                         getToken(){
+                        console.log("getToken ", this.token)
+                        return this.token;
+                                    
+                    }
+
+    //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+                getUserDetail(){
+                console.log("getUserDetail ", this.userDetail)
+                return this.userDetail;
+           }
 
 
-        }).catch(function(error){
-            console.log(error.message)
-        })
+                    reloadTokenAndUserDetail(){
+                    //this.storeUserInfo(Firebase.auth().currentUser);
+                    this.token = this.getValueFromLocalStorage(this.appConstant.TOKEN)
+                    this.userDetail = JSON.parse(this.getValueFromLocalStorage(this.appConstant.USER_DETAIL))
+               }
 
-        console.log("Firebase is finished")
+   //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-    }
-*/
+               logout(){
+                        Firebase.auth().signOut();
+                        this.removeValueFromLocalStorage(this.appConstant.TOKEN)
+                        this.removeValueFromLocalStorage(this.appConstant.USER_DETAIL)
+                   }
+   //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+                   refreshToken(){
+                    
+                            //Students section
+                    
+                        }
     signInWithGoogle(){
         
     }

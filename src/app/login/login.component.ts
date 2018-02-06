@@ -3,6 +3,7 @@ import { AuthService,AuthServiceImpl } from '../auth.service';
 import * as Firebase from 'firebase';
 import { Observable,Observer } from 'rxjs/Rx';
 import { UserModel } from '../model/user.model';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -13,7 +14,7 @@ import { UserModel } from '../model/user.model';
 export class LoginComponent implements OnInit {
 
   user: UserModel = new UserModel();
-  constructor(private authservices:AuthServiceImpl){
+  constructor(private authservices:AuthServiceImpl,private router:Router){
 
   } 
   loginWithUsernameAndPassword(email, password){
@@ -45,6 +46,8 @@ export class LoginComponent implements OnInit {
         console.log("store info of the user data")
         this.authservices.insertUserInfo(data)
         console.log("user details ends  ")
+        this.router.navigate(['home'])
+        
       },
       error=>{
         console.log("while subcribing userinfo")
@@ -53,6 +56,9 @@ export class LoginComponent implements OnInit {
   }
   
   ngOnInit() {
+
+    this.authservices.getToken()
+    this.authservices.getUserDetail()
   }
 
 }
