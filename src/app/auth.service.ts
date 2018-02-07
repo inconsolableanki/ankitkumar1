@@ -4,7 +4,8 @@ import { User } from 'firebase';
 import { from } from 'rxjs/observable/from'
 import { UserDetail } from './model/user-detail.model';
 import { appConstants } from './util/app.constant';
-import { error } from 'selenium-webdriver';
+
+import { EventEmitter } from '@angular/core';
 
 export interface AuthService{
 
@@ -16,6 +17,8 @@ export interface AuthService{
         reloadTokenAndUserDetail();
         getUserDetail(); 
         getToken();
+
+        isAuthenticated() : boolean;
 }
 
 export class AuthServiceImpl implements AuthService{
@@ -27,6 +30,7 @@ export class AuthServiceImpl implements AuthService{
             private appConstant = appConstants;
             private token : string;
             private userDetail : UserDetail ///we have to hide these detials
+            public LoginEvent : EventEmitter<boolean> = new EventEmitter()
 
 
 
@@ -143,6 +147,11 @@ export class AuthServiceImpl implements AuthService{
                             //Students section
                     
                         }
+
+                            isAuthenticated(): boolean{           //token should not b null as authrization
+                                  return this.token != null
+                            }
+
     signInWithGoogle(){
         
     }

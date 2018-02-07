@@ -8,27 +8,39 @@ export class HearderService {
 
   menu : any[]=[{
     displayname : 'Home',
-    url:'home'
+    url:'home',
+    
     //icon: 'settings_power'
   },
   {
     displayname:'Login',
-    url:'login'
+    url:'login',
+    isAuthRequired: false
   },
   {
     displayname:'Contactus',
-    url:'contactus'
+    url:'contactus',
+    
   },
   {
     displayname:'Dashboard',
-    url:'dashboard'
+    url:'dashboard',
+    
   },
+
+  
   {
     displayname:'Registration',
-    url: 'registration'
-  }
- 
-   
+    url: 'registration',
+    isAuthRequired: false
+  },
+
+  {
+    displayname: 'Logout',
+        url : 'login?isAuthRequired=true',
+        
+}
+ ,
   
   ]
   getmenu(){

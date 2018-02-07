@@ -45,6 +45,7 @@ export class LoginComponent implements OnInit {
       data=>{
         console.log("store info of the user data")
         this.authservices.insertUserInfo(data)
+        this.authservices.LoginEvent.emit(true)
         console.log("user details ends  ")
         this.router.navigate(['home'])
         
@@ -59,6 +60,7 @@ export class LoginComponent implements OnInit {
 
     this.authservices.getToken()
     this.authservices.getUserDetail()
+    this.authservices.logout() //call logout method
   }
 
 }

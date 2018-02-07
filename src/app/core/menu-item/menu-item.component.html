@@ -2,7 +2,10 @@
 <header class="ank">
 <div class = "gallary">
 <ng-template ngFor let-item [ngForOf]="displayname" >
-      <a class="router-links" routerLinkActive="active-link" routerLink="{{item.url}}"> {{item.displayname}}</a>
+      <button *ngIf ="(item.isAuthRequired == undefined) || (item.isAuthRequired ==isAuth)" mat-button class="router-links" routerLinkActive="active-link" routerLink="{{item.url}}"> {{item.displayname}}</button>
+
+      
+
     </ng-template>
   
 </div>  

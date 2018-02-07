@@ -133,7 +133,8 @@ user : UserModel= new UserModel;
         }
      
 
-  ngOnInit() {
+  ngOnInit(): void {
+    this.authservices.logout();
   }
 
 }
