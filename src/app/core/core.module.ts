@@ -7,9 +7,10 @@ import { MenuItemComponent } from './menu-item/menu-item.component';
 import { ImagePlaceholderComponent } from './image-placeholder/image-placeholder.component';
 import { HearderService } from './header/hearder.service';
 import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatIconModule} from '@angular/material/icon';
 @NgModule({
   imports: [
-    CommonModule,RouterModule,MatSidenavModule
+    CommonModule,RouterModule,MatSidenavModule,MatIconModule
   ],
   declarations: [HeaderComponent, FooterComponent, MenuItemComponent, ImagePlaceholderComponent],
   exports: [HeaderComponent,FooterComponent],

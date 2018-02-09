@@ -11,9 +11,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { ContactusModule } from './contactus/contactus.module';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
-  
+import {MatToolbarModule} from '@angular/material/toolbar';
+
 import {AuthServiceImpl } from './auth.service';
 import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatIconModule} from '@angular/material/icon';
 
 
 
@@ -41,11 +43,9 @@ const routes : Routes = [
   ],
   imports: [
     BrowserModule,
-    CoreModule, MatSidenavModule,
-    RouterModule.forRoot(routes),NoopAnimationsModule
-    
-    
-    
+    CoreModule, MatSidenavModule,MatIconModule,
+    RouterModule.forRoot(routes),NoopAnimationsModule,MatToolbarModule
+     
     
   ],
   providers: [AuthServiceImpl],

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 
+
 @Injectable()
 
 export class HearderService {
@@ -9,23 +10,24 @@ export class HearderService {
   menu : any[]=[{
     displayname : 'Home',
     url:'home',
+    icon:'home'
     
-    //icon: 'settings_power'
   },
   {
     displayname:'Login',
     url:'login',
-    isAuthRequired: false
+    isAuthRequired: false,
+    icon: 'settings_phone'
   },
   {
     displayname:'Contactus',
     url:'contactus',
-    
+    icon: 'supervisor_account'
   },
   {
     displayname:'Dashboard',
     url:'dashboard',
-    
+    icon: 'dashboard'
   },
 
   
@@ -38,6 +40,7 @@ export class HearderService {
   {
     displayname: 'Logout',
         url : 'login?isAuthRequired=true',
+        icon: 'settings_power'
         
 }
  ,

@@ -1,4 +1,4 @@
-.gallary{
+.head{
     text-align: right;
     
 }
@@ -15,4 +15,10 @@
 }
 .ank{
     background-color: aqua;
+
+}
+
+.icon
+{
+    font-size: 10px;
 }
