@@ -1,14 +1,27 @@
 
 
-<nav>
-
-      <app-menu-item [displayname]="menu">
-
-      </app-menu-item>
+ <div class="body">
+    <mat-toolbar class="router-links" routerLinkActive="active-link" routerLink="home">
       
 
-    </nav>
+        <span class="fill-remaining-space"></span>
+ 
+ 
+        <div fxLayout="row" fxShow="false"  fxShow.gt-sm>
+        <app-menu-item [displayname]="menu"></app-menu-item>
+    
+ 
+        </div>
 
-     
-    <app-image-placeholder [imgurl]="logourl" [height]="'40'" [width]="'40'"></app-image-placeholder>
+        <button mat-button [mat-menu-trigger-for]="menus"  fxHide="false" fxHide.gt-sm>
+            <mat-icon>menu</mat-icon> </button>
+    
+       </mat-toolbar>
+       <mat-menu x-position="before" #menus="matMenu">
+          <app-menu-item [displayname]="menu"></app-menu-item>
+          
+          
+          <!--<button mat-menu-item>Help</button>-->
+      </mat-menu>
+    </div>
   

@@ -4,21 +4,19 @@
 }
 .router-links{
 
-    color: rgb(88, 10, 40);
+    color: rgb(12, 12, 12);
     text-decoration-style: solid;
+    font-size: 20px;
     font-family: 'Times New Roman', Times, serif;
-    text-decoration: brown;
-    padding-right: 10px;
+    text-decoration: rgb(27, 0, 0);
+    background-color:black;
+    
 }
 .active-link{
-    color: red;
-}
-.ank{
-    background-color: aqua;
-
+    color:rgb(179, 220, 223);
 }
 
 .icon
 {
-    font-size: 10px;
+    font-size-adjust: inherit;
 }

@@ -2,11 +2,11 @@
 <header class="head">
 <div class = "divc">
 <ng-template ngFor let-item [ngForOf]="displayname" >
-      <button *ngIf ="(item.isAuthRequired == undefined) || (item.isAuthRequired ==isAuth)" mat-button class="router-links" routerLinkActive="active-link" routerLink="{{item.url}}"> <mat-icon class="icons">{{item.icon}}</mat-icon>{{item.displayname}}</button>
+      <button mat-button color="primary" class="router-links"*ngIf ="(item.isAuthRequired == undefined) || (item.isAuthRequired ==isAuth)"   routerLinkActive="active-link" routerLink="{{item.url}}"> {{item.displayname}}</button>
 
-      
-
+     
     </ng-template>
-  
+    
 </div>  
+
 </header>

@@ -8,9 +8,24 @@ import { ImagePlaceholderComponent } from './image-placeholder/image-placeholder
 import { HearderService } from './header/hearder.service';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
+import {MatMenuModule} from '@angular/material/menu';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import { FlexLayoutModule } from '@angular/flex-layout';
+
+
+
 @NgModule({
   imports: [
-    CommonModule,RouterModule,MatSidenavModule,MatIconModule
+    CommonModule,
+    RouterModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatButtonModule,
+    MatMenuModule,
+    BrowserAnimationsModule,
+    MatToolbarModule,FlexLayoutModule
   ],
   declarations: [HeaderComponent, FooterComponent, MenuItemComponent, ImagePlaceholderComponent],
   exports: [HeaderComponent,FooterComponent],

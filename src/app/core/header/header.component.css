@@ -1,22 +1,8 @@
-.router-links{
+.fill-remaining-space {
+    /*This fills the remaining space, by using flexbox.  
+   Every toolbar row uses a flexbox row layout. */
+   flex: 1 1 auto;
 
-    text-align: none;
-    font-size: 14px;
-    color:red;
-    padding-top: 50px;
-    padding-right: 30px;
-    padding-bottom: 50px;
-    padding-left: 80px;
-    
-}
-.active-link{
 
-    color: blue;
-}
-.h1{
-    image-rendering: auto;
-    padding-top: 0px;
-    padding-right: 20px;
-    padding-bottom: 30px;
-    padding-left: 10px;
-}
+ }
+
