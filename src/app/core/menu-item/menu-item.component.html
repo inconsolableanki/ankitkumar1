@@ -4,8 +4,7 @@
 <ng-template ngFor let-item [ngForOf]="displayname" >
 
   
-      <button mat-button color="primary" class="router-links"*ngIf ="(item.isAuthRequired == undefined) || (item.isAuthRequired ==isAuth)"   routerLinkActive="active-link" routerLink="{{item.url}}"> {{item.displayname}}</button>
-
+    <button *ngIf ="(item.isAuthRequired == undefined) || (item.isAuthRequired ==isAuth)" mat-button class="router-links" routerLinkActive="active-link" routerLink="{{item.url}}"> {{item.displayname}}</button>
      
     </ng-template>
     
