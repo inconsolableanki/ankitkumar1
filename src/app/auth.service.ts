@@ -5,8 +5,11 @@ import { from } from 'rxjs/observable/from'
 import { UserDetail } from './model/user-detail.model';
 import { appConstants } from './util/app.constant';
 
-import { EventEmitter } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
+import { LogService } from './logService.service';
+ 
 
+ 
 export interface AuthService{
 
    // userSignup(email, password);
@@ -21,8 +24,16 @@ export interface AuthService{
         isAuthenticated() : boolean;
 }
 
+
+@Injectable()
 export class AuthServiceImpl implements AuthService{
+   
     
+constructor(private logService : LogService){
+
+}
+
+
        /* userSignup(email:any,password:any): Promise<any>{
             return this.signUpWithEmailAndPassword(email,password)
         }*/
@@ -59,15 +70,15 @@ export class AuthServiceImpl implements AuthService{
 
                 private storeUserinfo(user:Firebase.User) //insert method is observable now create subscribe
                 {
-                    console.log(user)
+                    this.logService.log(user)
                     from (user.getIdToken(true)).subscribe(
                         data =>{
-                            console.log(data)
+                            this.logService.log(data)
                             this.token = data;  // this vill revert the token detials 
                             this.storeValueInLocalStorage(this.appConstant.TOKEN,data)
                             
                         }, error=>{
-                            console.log(error)
+                            this.logService.log(error)
                             
                         }
 
@@ -116,14 +127,14 @@ export class AuthServiceImpl implements AuthService{
     //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
                          getToken(){
-                        console.log("getToken ", this.token)
-                        return this.token;
+                       this.logService.log(this.token)
+                            return this.token;
                                     
                     }
 
     //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
                 getUserDetail(){
-                console.log("getUserDetail ", this.userDetail)
+                    this.logService.log(this.userDetail)
                 return this.userDetail;
            }
 

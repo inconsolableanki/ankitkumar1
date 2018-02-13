@@ -13,8 +13,7 @@ import {MatMenuModule} from '@angular/material/menu';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { FlexLayoutModule } from '@angular/flex-layout';
-
-
+import { AuthServiceImpl } from '../auth.service';
 
 @NgModule({
   imports: [
@@ -29,6 +28,6 @@ import { FlexLayoutModule } from '@angular/flex-layout';
   ],
   declarations: [HeaderComponent, FooterComponent, MenuItemComponent, ImagePlaceholderComponent],
   exports: [HeaderComponent,FooterComponent],
-  providers:[HearderService]
+  providers:[HearderService,AuthServiceImpl]
 })
 export class CoreModule { }

@@ -2,6 +2,8 @@
 <header class="head">
 <div class = "divc">
 <ng-template ngFor let-item [ngForOf]="displayname" >
+
+  
       <button mat-button color="primary" class="router-links"*ngIf ="(item.isAuthRequired == undefined) || (item.isAuthRequired ==isAuth)"   routerLinkActive="active-link" routerLink="{{item.url}}"> {{item.displayname}}</button>
 
      

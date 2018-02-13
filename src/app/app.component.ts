@@ -25,5 +25,6 @@ export class AppComponent implements OnInit {
     ngOnInit(): void {
       
         this.authservices.reloadTokenAndUserDetail();
+        console.log("isAuthenticated ",this.authservices.isAuthenticated())
 }
 }

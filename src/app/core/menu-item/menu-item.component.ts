@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { AuthServiceImpl } from '../../auth.service';
+import { LogService } from '../../logService.service';
 
 @Component({
   selector: 'app-menu-item',
@@ -10,8 +11,10 @@ export class MenuItemComponent implements OnInit {
 
   @Input() displayname : any[];
   isAuth: boolean = false;
- //boolean type variable   
-    constructor(private authservice : AuthServiceImpl) {
+ //boolean type variable  
+ 
+ 
+    constructor(private authservice : AuthServiceImpl,private logService:LogService) {// dependencies introduced
   
       this.authservice.LoginEvent.subscribe(        //publish an event of Login event and subsribe it
         (data: boolean)=>{
@@ -31,7 +34,8 @@ export class MenuItemComponent implements OnInit {
 
 
   isAuthenticated(){
-    console.log("Is Authenticated Called !")
+    this.logService.log("Is Authenticated Called !")
+        this.logService.log("isAuthenticated"+this.authservice.isAuthenticated) ;
         this.isAuth = this.authservice.isAuthenticated();
         console.log(this.displayname)
   }

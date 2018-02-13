@@ -1,13 +1,13 @@
 
 
  <div class="body">
-    <mat-toolbar class="router-links" routerLinkActive="active-link" routerLink="home">
+    <mat-toolbar class ="flex-toolbar"routerLinkActive="active-link" >
       
 
         <span class="fill-remaining-space"></span>
  
  
-        <div fxLayout="row" fxShow="false"  fxShow.gt-sm>
+        <div fxLayout="row" fxShow="true"  fxShow.gt-sm>
         <app-menu-item [displayname]="menu"></app-menu-item>
     
  
@@ -23,5 +23,6 @@
           
           <!--<button mat-menu-item>Help</button>-->
       </mat-menu>
+      
     </div>
   

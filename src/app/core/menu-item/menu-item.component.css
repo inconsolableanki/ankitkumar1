@@ -4,16 +4,16 @@
 }
 .router-links{
 
-    color: rgb(12, 12, 12);
+    color:white;
     text-decoration-style: solid;
     font-size: 20px;
     font-family: 'Times New Roman', Times, serif;
-    text-decoration: rgb(27, 0, 0);
-    background-color:black;
+    
+    background-color:orange;
     
 }
 .active-link{
-    color:rgb(179, 220, 223);
+    color:black;
 }
 
 .icon

@@ -12,6 +12,7 @@ import {AuthServiceImpl } from './auth.service';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatIconModule} from '@angular/material/icon';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { LogService } from './logService.service';
 
 
 const routes : Routes = [
@@ -38,12 +39,12 @@ const routes : Routes = [
   imports: [
     BrowserModule,
     CoreModule, MatSidenavModule,MatIconModule,
-    RouterModule.forRoot(routes),NoopAnimationsModule,MatToolbarModule,FlexLayoutModule
+    NoopAnimationsModule,MatToolbarModule,FlexLayoutModule,RouterModule.forRoot(routes)
 
      
     
   ],
-  providers: [AuthServiceImpl],
+  providers: [AuthServiceImpl,LogService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

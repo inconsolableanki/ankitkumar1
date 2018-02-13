@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild } from '@angular/core';
 import { AuthService,AuthServiceImpl } from '../auth.service';
 import * as Firebase from 'firebase';
 import { Observable,Observer } from 'rxjs/Rx';
 import { UserModel } from '../model/user.model';
 import { Router } from '@angular/router';
+import { AlertComponent } from '../util/alert/alert.component';
 
 
 @Component({
@@ -12,7 +13,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
+  @ViewChild(AlertComponent) alertComp : AlertComponent;//for alert and called the alert from util
   user: UserModel = new UserModel();
   constructor(private authservices:AuthServiceImpl,private router:Router){
 
@@ -21,10 +22,12 @@ export class LoginComponent implements OnInit {
         this.authservices.userSignin(email, password).subscribe(
           data=>{
             console.log(data)
+            this.alertComp.successAlert("User is logged in Successful","Done")
             this.storeInfoSubscriber(data);
             console.log("loginWithUsernameAndPassword ends")
           },
           error=>{
+            this.alertComp.errorAlert(error.messsage,"Error")
             console.log(error.messsage)
           }
         )

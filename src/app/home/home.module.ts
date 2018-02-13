@@ -10,8 +10,10 @@ const routes: Routes =[
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule.forChild(routes),
+    RouterModule.forChild(routes)
   ],
   declarations: [HomeComponent]
 })
-export class HomeModule { }
+export class HomeModule { 
+  
+}
