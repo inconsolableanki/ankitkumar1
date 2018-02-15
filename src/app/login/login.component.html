@@ -1,11 +1,11 @@
 <h1>     LOGIN HERE            </h1>
 <app-alert></app-alert>
-<div>
+<div class="lpage">
 
     <form (ngSubmit)= "loginWithUsernameAndPassword(user.email,user.password)" #myForm="ngForm">
-      <mat-form-field>
-        
-       <input class ="inputemail"name="EmailId" matInput placeholder="Enter Username" 
+      <mat-form-field class="inputforms">
+        <div >
+       <input  name="EmailId" matInput placeholder="Enter Username" 
         [(ngModel)]="user.email"
         required
         email
@@ -13,10 +13,11 @@
         />
         <mat-error *ngIf="emailId.errors?.required">Email id is required.</mat-error>            
          <mat-error *ngIf="!emailId.errors?.required && emailId.errors?.email">Email id is not valid.</mat-error>
+        </div>
         </mat-form-field><br>
       
     
-      <mat-form-field>
+      <mat-form-field  class="inputforms1">
           <input type="Password" name="Password" matInput placeholder="Enter Password" 
         [(ngModel)]="user.password"
        required

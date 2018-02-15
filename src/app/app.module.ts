@@ -26,6 +26,7 @@ const routes : Routes = [
   {path:'dashboard',loadChildren:'app/dashboard/dashboard.module#DashboardModule'},
   {path:'contactus', loadChildren:'app/contactus/contactus.module#ContactusModule'},
   {path:'registration', loadChildren:'app/registration/registration.module#RegistrationModule'},
+  { path : 'resource-not-found', component: PagenotfoundComponent},
   {path:"**",component:PagenotfoundComponent}
 
   

@@ -1,5 +1,6 @@
-.inputemail{
-
-    padding-right: 200px;
-    
+.one{
+    justify-content: center;
+    flex-grow: 1;
+    align-content: center;
+    display: flex;
 }
