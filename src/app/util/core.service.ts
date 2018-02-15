@@ -1,6 +1,9 @@
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs/Observable";
+import { Injectable } from "@angular/core";
 
+
+@Injectable()
 export class CoreServices{
     constructor(private httpClient : HttpClient){
 

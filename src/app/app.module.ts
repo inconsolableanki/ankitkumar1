@@ -11,8 +11,10 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {AuthServiceImpl } from './auth.service';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatIconModule} from '@angular/material/icon';
-import { FlexLayoutModule } from '@angular/flex-layout';
-import { LogService } from './logService.service';
+import {FlexLayoutModule} from '@angular/flex-layout';
+import {LogService} from './logService.service';
+import {CoreServices} from './util/core.service';
+import {HttpClientModule} from '@angular/common/http';
 
 
 const routes : Routes = [
@@ -33,18 +35,18 @@ const routes : Routes = [
   declarations: [
     AppComponent,
     PagenotfoundComponent,
-      
+   
     
   ],
   imports: [
     BrowserModule,
     CoreModule, MatSidenavModule,MatIconModule,
-    NoopAnimationsModule,MatToolbarModule,FlexLayoutModule,RouterModule.forRoot(routes)
+    NoopAnimationsModule,MatToolbarModule,FlexLayoutModule,RouterModule.forRoot(routes), HttpClientModule
 
      
     
   ],
-  providers: [AuthServiceImpl,LogService],
+  providers: [AuthServiceImpl,LogService,CoreServices],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

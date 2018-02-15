@@ -5,7 +5,7 @@
     <form (ngSubmit)= "loginWithUsernameAndPassword(user.email,user.password)" #myForm="ngForm">
       <mat-form-field>
         
-        <input name="EmailId" matInput placeholder="Enter Username" 
+       <input class ="inputemail"name="EmailId" matInput placeholder="Enter Username" 
         [(ngModel)]="user.email"
         required
         email
@@ -13,7 +13,7 @@
         />
         <mat-error *ngIf="emailId.errors?.required">Email id is required.</mat-error>            
          <mat-error *ngIf="!emailId.errors?.required && emailId.errors?.email">Email id is not valid.</mat-error>
-        </mat-form-field>
+        </mat-form-field><br>
       
     
       <mat-form-field>

@@ -35,8 +35,8 @@ export class MenuItemComponent implements OnInit {
 
   isAuthenticated(){
     this.logService.log("Is Authenticated Called !")
-        this.logService.log("isAuthenticated"+ this.authservice.isAuthenticated) ;
+      this.logService.log("isAuthenticated"+ this.authservice.isAuthenticated) ;
         this.isAuth = this.authservice.isAuthenticated();
-        console.log(this.displayname)
+        
   }
 }
