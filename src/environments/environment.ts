@@ -5,6 +5,6 @@
 
 export const environment = {
   production: false,
-  API_URL: "http://localhost:4200/assets/"
+ API_URL: "http://localhost:4200/assets/"
  //API_URL: "https://food-pandaproject1.firebaseio.com/"
 };

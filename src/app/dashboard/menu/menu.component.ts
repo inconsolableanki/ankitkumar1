@@ -13,8 +13,13 @@ export class MenuComponent implements OnInit {
   
   menu : MenuItemModel = new MenuItemModel();
   
-  constructor(private dashboardServices: dashboardService) { }
+  constructor(private dashboardServices: dashboardService) {
+
+     console.log("Menu is created successfully")
+   }
   ngOnInit() {
+
+
     this.getAllMenu();
   }
 
@@ -25,6 +30,13 @@ export class MenuComponent implements OnInit {
       },
       (error)=>{
         console.log("error while creating menu ",error)
+
+        if(error.status == 401 || error.status==403){
+          console.log("navigate to login page")
+
+        }else if(error.status==404){
+          console.log("navigate user to the resource  page not found")
+        }
       }
     )
   }
@@ -56,7 +68,13 @@ export class MenuComponent implements OnInit {
       },(error)=>
       {
         console.log("Error while fetching menu item ")
+        if(error.status == 401 || error.status == 403){
+          console.log("navigate user to the login page")
+        }else if(error.status == 404){
+          console.log("navigate user to the resource not found page")          
+        }
       }
+      
     )
   }
 

@@ -27,7 +27,7 @@ export class dashboardService{
                 return this.coreServices.get(this.API_URL + DASHBOARD_CONSTANTS.FETCH_ALL_MENU, {});
            }
         
-            getMenuById(id: string): Observable<MenuItemModel>{// THIS WILL GET BY ID
+          getMenuById(id: string): Observable<MenuItemModel>{// THIS WILL GET BY ID
                 return this.coreServices.get(this.API_URL + DASHBOARD_CONSTANTS.FETCH_MENU_BY_ID + id, {})
             }
         
