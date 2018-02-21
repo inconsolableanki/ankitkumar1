@@ -2,6 +2,11 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
+  
+    selector: 'app-scheduling',
+    templateUrl: './scheduling.component.html',
+    styleUrls: ['./scheduling.component.css']
+
 })
 export class SchedulingComponent implements OnInit {
 
@@ -9,7 +14,7 @@ export class SchedulingComponent implements OnInit {
 
   schedulingForm: FormGroup;
 
-  // user:  any = {
+  //   user:  any = {
   //   id: 1234,
   //   userName: 'ggarg2',
   //   emailId: 'a@a.com'
@@ -24,9 +29,11 @@ export class SchedulingComponent implements OnInit {
   }
 
   ngOnInit() {
+    
     if(this.user && this.user.id){
       this.createSchedulingForm(this.user)
-    }else{
+    }
+    else{
       this.createSchedulingForm({})
     }
 
@@ -40,11 +47,11 @@ export class SchedulingComponent implements OnInit {
         'email' : new FormControl(user.emailId, [ Validators.required, Validators.email ]),
       }),
       'phoneNumber' : new FormControl(user.phoneNumber, [ Validators.required ])
-    })
+      })
   }
 
   submitForm(){
     console.log(this.schedulingForm)
-  }
+              }
 
 }
