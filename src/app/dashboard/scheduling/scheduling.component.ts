@@ -51,7 +51,7 @@ export class SchedulingComponent implements OnInit {
     })
   }
 
-  \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+  ///////////////////////////////////////////
   addHobbies(){
     console.log("add hobbies called")
     let inputFormControl = new FormControl("Test Hobbies", Validators.required);
