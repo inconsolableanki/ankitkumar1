@@ -1,9 +1,9 @@
 <h1>     LOGIN HERE            </h1>
 <app-alert></app-alert>
-<div>
+<div class="loginclass">
 
     <form (ngSubmit)= "loginWithUsernameAndPassword(user.email,user.password)" #myForm="ngForm">
-      <mat-form-field >
+      <mat-form-field class="f1" >
         
        <input  name="EmailId" matInput placeholder="Enter Username" 
         [(ngModel)]="user.email"
@@ -16,7 +16,7 @@
       
         </mat-form-field><br>
       
-      <mat-form-field>
+      <mat-form-field class="f1">
           <input type="Password" name="Password" matInput placeholder="Enter Password" 
         [(ngModel)]="user.password"
        required
@@ -28,7 +28,7 @@
       
       </mat-form-field>
       
-      <button [disabled]="myForm.invalid" mat-raised-button color="accent" type="submit">Sign in</button> <br>
+      <button class="f1"[disabled]="myForm.invalid" mat-raised-button color="accent" type="submit">Sign in</button> <br>
       
       
     
@@ -36,4 +36,4 @@
     </form>
     
     
-    </div>
+  

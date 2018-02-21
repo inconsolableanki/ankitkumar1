@@ -27,7 +27,7 @@ export class HearderService {
   {
     displayname:'Dashboard',
     url:'dashboard',
-    
+    isAuthRequired : true
   },
 
   
